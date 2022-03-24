@@ -24,48 +24,34 @@ function setup(){
 function draw(){
     image(video,0,0,400,400);
 
-    fill("FF0000");
-    stroke("FF0000");
-
-    if(scoreLeftWrist>0.2)
+    fill("#FF0000");
+    stroke("#FF0000");
+    circle(right_wrist_X,right_wrist_Y,20);
+    if(right_wrist_Y>0 && right_wrist_Y<=100)
     {
-        circle(left_wrist_X,left_wrist_Y,20);
-    InNumberleft_wrist_Y = Number(left_wrist_Y);
-    remove_decimals = floor(InNumberleft_wrist_Y);
-    volume = remove_decimals/400;
-    document.getElementById("volume").innerHTML="Volume: "+volume;
-    song.setVolume(volume);
+        document.getElementById("speed").innerHTML = "Speed: 0.5x";
+        song.rate(0.5);
     }
-    
-        circle(right_wrist_X,right_wrist_Y,20);
-        if(right_wrist_Y>0 && right_wrist_Y<=100)
-        {
-            document.getElementById("speed").innerHTML = "Speed: 0.5x";
-            song.rate(0.5);
-        }
 
-        else if(right_wrist_Y>100 && right_wrist_Y<=200)
-        {
-            document.getElementById("speed").innerHTML = "Speed: 1x";
-            song.rate(1);
-        }
+    else if(right_wrist_Y>100 && right_wrist_Y<=200)
+    {
+        document.getElementById("speed").innerHTML = "Speed: 1x";
+        song.rate(1);
+    }
 
-        else if(right_wrist_Y>200 && right_wrist_Y<=300)
-        {
-            document.getElementById("speed").innerHTML = "Speed: 1.5x";
-            song.rate(1.5);
-        }
+    else if(right_wrist_Y>200 && right_wrist_Y<=300)
+    {
+        document.getElementById("speed").innerHTML = "Speed: 1.5x";
+        song.rate(1.5);
+    }
 
-        else if(right_wrist_Y>300 && right_wrist_Y<=400)
-        {
-            document.getElementById("speed").innerHTML = "Speed: 2x";
-            song.rate(2);
-        }
+    else if(right_wrist_Y>300 && right_wrist_Y<=400)
+    {
+        document.getElementById("speed").innerHTML = "Speed: 2x";
+        song.rate(2);
+    }
 
-
-
-    
-
+   
 }
 
 function playMusic()
